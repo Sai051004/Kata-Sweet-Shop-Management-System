@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+.env.local
+*.env
+*.env.*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.sw?
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Client Build
+/client/dist
+/client/dist-ssr
+/client/coverage
+
+# Server
+/server/uploads/*
+!/server/uploads/.gitkeep
+/server/coverage

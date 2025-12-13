@@ -1,0 +1,72 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # 1. Test Backend Integrity
+  backend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: |
+          cd server
+          npm install
+
+      - name: Run Backend Tests
+        run: |
+          cd server
+          npm test
+        env:
+          JWT_SECRET: "test_secret_123"
+          MONGO_URI: "mongodb://127.0.0.1:27017/sweetshop_test" # Note: Needs MongoDB Service
+    
+    # Run MongoDB Service in GitHub Actions for tests
+    services:
+      mongodb:
+        image: mongo:6
+        ports:
+          - 27017:27017
+
+  # 2. Build and Deploy (Placeholder)
+  deploy:
+    needs: backend-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Client Dependencies
+        run: |
+          cd client
+          npm install
+
+      - name: Build Client
+        run: |
+          cd client
+          npm run build
+
+      - name: Deploy Application
+        run: |
+          echo "🚀 Deploying to Production Server..."
+          # Add your specific deployment commands here
+          # Example: scp -r server/ user@host:/var/www/
+          # Example: npm install -g netlify-cli && netlify deploy
+          echo "✅ Deployment Complete (Simulation)"
