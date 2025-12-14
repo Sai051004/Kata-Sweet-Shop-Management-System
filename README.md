@@ -1,6 +1,8 @@
 # 🍬 Sweet Shop Management System
 
-> A premium full-stack e-commerce solution for managing a sweet shop inventory, user sales, and administration.
+![Demo Video](https://github.com/Sai051004/Kata-Sweet-Shop-Management-System/blob/main/Sweet%20shop.gif)
+
+> A full-stack e-commerce solution for managing a sweet shop inventory, user sales, and administration.
 
 ![Node.js](https://img.shields.io/badge/Node.js-18.x-green) ![React](https://img.shields.io/badge/React-18.x-blue) ![MongoDB](https://img.shields.io/badge/MongoDB-6.x-green) ![Express](https://img.shields.io/badge/Express-4.x-lightgrey) ![License](https://img.shields.io/badge/License-MIT-orange)
 
