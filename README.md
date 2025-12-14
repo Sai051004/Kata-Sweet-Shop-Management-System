@@ -1,6 +1,6 @@
 # 🍬 Sweet Shop Management System
 
-![Demo Video](https://github.com/Sai051004/Kata-Sweet-Shop-Management-System/blob/main/Sweet%20shop.gif)
+![Demo Video](https://raw.githubusercontent.com/Sai051004/Kata-Sweet-Shop-Management-System/main/Sweet%20shop.gif)
 
 > A full-stack e-commerce solution for managing a sweet shop inventory, user sales, and administration.
 
