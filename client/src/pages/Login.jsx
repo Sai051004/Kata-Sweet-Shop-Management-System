@@ -5,12 +5,16 @@ import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const [formData, setFormData] = useState({ username: '', password: '' });
+    const [isLoading, setIsLoading] = useState(false); // Local loading state
     const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true); // Start loading
         const result = await login(formData.username, formData.password);
+        setIsLoading(false); // Stop loading provided result returns
+
         if (result.success) {
             toast.success('Welcome back!');
             navigate('/');
@@ -44,8 +48,13 @@ const Login = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary btn-block">
-                        Login
+                    <button
+                        type="submit"
+                        className="btn btn-primary btn-block"
+                        disabled={isLoading}
+                        style={{ opacity: isLoading ? 0.7 : 1 }}
+                    >
+                        {isLoading ? 'Logging in... (Waking up server)' : 'Login'}
                     </button>
                     <p className="text-center mt-4" style={{ color: 'var(--text-muted)' }}>
                         Don't have an account? <Link to="/register" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>Register</Link>
